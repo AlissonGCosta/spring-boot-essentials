@@ -2,7 +2,6 @@ package br.com.costa.spring_boot_essentials.controller;
 
 import br.com.costa.spring_boot_essentials.database.model.ProdutoModel;
 import br.com.costa.spring_boot_essentials.dtos.ProdutoDto;
-import br.com.costa.spring_boot_essentials.exception.NotFoundException;
 import br.com.costa.spring_boot_essentials.services.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -36,7 +35,7 @@ public class ProdutoController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ProdutoModel updateProduto(@PathVariable Integer id,
-                                      @RequestBody ProdutoDto produtoDto) throws NotFoundException {
+                                      @RequestBody ProdutoDto produtoDto) {
         return produtoService.updateProduto(produtoDto, id);
     }
 
